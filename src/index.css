@@ -570,6 +570,12 @@ svg {
   margin-top: 0.05in;
 }
 
+.card.train svg {
+  position: absolute;
+  right: 0.25in;
+  bottom: 0.55in;
+}
+
 .charter__tokens {
   position: absolute;
   top: 0;

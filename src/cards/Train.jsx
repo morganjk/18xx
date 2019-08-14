@@ -5,6 +5,8 @@ import Color from "../data/Color";
 import addIndex from "ramda/src/addIndex";
 import map from "ramda/src/map";
 
+import trains from "../data/trains";
+
 const Train = ({ train }) => {
   let { name, price, color, info, description, players } = train;
 
@@ -35,6 +37,8 @@ const Train = ({ train }) => {
     );
   }
 
+  let Train = trains[color || "yellow"];
+
   return (
     <div className="cutlines">
       <div className="card train">
@@ -46,6 +50,7 @@ const Train = ({ train }) => {
               <div className="train__description">{description}</div>
               <div className="train__notes">{notes}</div>
               <div className="train__name" style={{ color: t(c(color)) }}>{name}</div>
+              <Train preserveAspectRatio="xMaxYMid meet" height="50"/>
             </React.Fragment>
           )}
         </Color>

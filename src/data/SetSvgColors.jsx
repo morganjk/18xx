@@ -14,26 +14,42 @@ const colors = keys(require("./themes/companies/rob.json"));
 const SetSvgColors = ({ companySvgLogos }) => {
   if (companySvgLogos === "none" || companySvgLogos === "original") return null;
 
+  let rules = [];
+
   return (
-    <ColorContext.Provider value="companies">
-      <Color>
-        {c => {
-          let rules = chain(color => [
-            `svg .color-${color}{fill:${c(color)}}`,
-            `svg .color-stroke-${color}{stroke:${c(color)}}`
-          ], colors);
+    <React.Fragment>
+      <ColorContext.Provider value="companies">
+        <Color>
+          {c => {
+            let rules = chain(color => [
+              `svg .color-${color}{fill:${c(color)}}`,
+              `svg .color-stroke-${color}{stroke:${c(color)}}`
+            ], colors);
 
-          if (companySvgLogos === "main") {
-            rules = concat(rules, chain(color => [
-              `svg .color-main-${color} .color-main{fill:${c(color)}}`,
-              `svg .color-main-${color} .color-stroke-main{stroke:${c(color)}}`,
-            ], colors));
-          }
+            if (companySvgLogos === "main") {
+              rules = concat(rules, chain(color => [
+                `svg .color-main-${color} .color-main{fill:${c(color)}}`,
+                `svg .color-main-${color} .color-stroke-main{stroke:${c(color)}}`,
+              ], colors));
+            }
 
-          return <style>{join(" ", rules)}</style>;
-        }}
-      </Color>
-    </ColorContext.Provider>
+            return <style>{join(" ", rules)}</style>;
+          }}
+        </Color>
+
+      </ColorContext.Provider>
+      <ColorContext.Provider value={null}>
+        <Color>
+          {c => {
+            let rules = chain(color => [
+              `svg .color-train-${color}{fill:${c(color)}}`,
+            ], ["yellow", "green", "brown", "gray"]);
+
+            return <style>{join(" ", rules)}</style>;
+          }}
+        </Color>
+      </ColorContext.Provider>
+    </React.Fragment>
   );
 }
 
