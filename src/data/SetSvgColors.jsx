@@ -14,8 +14,6 @@ const colors = keys(require("./themes/companies/rob.json"));
 const SetSvgColors = ({ companySvgLogos }) => {
   if (companySvgLogos === "none" || companySvgLogos === "original") return null;
 
-  let rules = [];
-
   return (
     <React.Fragment>
       <ColorContext.Provider value="companies">
