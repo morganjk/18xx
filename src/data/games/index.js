@@ -29,6 +29,7 @@ import game_18SS from "./18SS";
 import game_18SY from "./18SY";
 import game_18Chesapeake from "./18Chesapeake";
 import game_18Mex from "./18Mex";
+import game_18Test from "./18Test";
 import game_FourthAge from "./FourthAge";
 import game_Harzbahn from "./Harzbahn";
 
@@ -56,7 +57,7 @@ let all_games = {
   "1891": game_1891,
   "1899": game_1899,
   "18AL": game_18AL,
-  "18CLE": game_18CLE,  
+  "18CLE": game_18CLE,
   "18EB": game_18EB,
   "18EU": game_18EU,
   "18NK": game_18NK,
@@ -64,6 +65,7 @@ let all_games = {
   "18SY": game_18SY,
   "18Chesapeake": game_18Chesapeake,
   "18Mex": game_18Mex,
+  "18Test": game_18Test,
   FourthAge: game_FourthAge,
   Harzbahn: game_Harzbahn
 };
@@ -77,7 +79,8 @@ let public_games = {
   "1889": game_1889,
   "1890": game_1890,
   "18AL": game_18AL,
-  "18EB": game_18EB
+  "18EB": game_18EB,
+  "18Test": game_18Test
 };
 
 export default (process.env.REACT_APP_ONLY_PUBLIC_GAMES ? public_games : all_games);
